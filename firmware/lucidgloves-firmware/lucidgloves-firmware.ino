@@ -2,21 +2,24 @@
  * LucidGloves Firmware Version 4
  * Author: Lucas_VRTech - LucidVR
  * lucidvrtech.com
+ * 
+ * 
+ * 
  */
 
 #include "AdvancedConfig.h"
 
 //This is the configuration file, main structure in _main.ino
 //CONFIGURATION SETTINGS:
-#define COMMUNICATION COMM_SERIAL //Which communication protocol to use
+#define COMMUNICATION COMM_BTSERIAL //Which communication protocol to use
 //serial over USB
-  #define SERIAL_BAUD_RATE 115200
+#define SERIAL_BAUD_RATE 115200
   
 //serial over Bluetooth
-  #define BTSERIAL_DEVICE_NAME "lucidgloves-left"
+#define BTSERIAL_DEVICE_NAME "lucidgloves-right"
 
 //ANALOG INPUT CONFIG
-#define FLIP_POTS  false  //Flip values from potentiometers (for fingers!) if they are backwards
+#define FLIP_POTS  true  //Flip values from potentiometers (for fingers!) if they are backwards
 
 //Gesture enables, make false to use button override
 #define TRIGGER_GESTURE true
@@ -40,16 +43,21 @@
 
 
 //joystick configuration
-#define JOYSTICK_BLANK false //make true if not using the joystick
-#define JOY_FLIP_X false
+#define JOYSTICK_BLANK true//make true if not using the joystick
+#define JOY_FLIP_X true
 #define JOY_FLIP_Y false
 #define JOYSTICK_DEADZONE 10 //deadzone in the joystick to prevent drift (in percent)
 
-#define NO_THUMB false //If for some reason you don't want to track the thumb
+//disable specific fingers for tracking
+#define NO_THUMB false
+#define NO_INDEX false
+#define NO_MIDDLE false
+#define NO_RING false
+#define NO_PINKY true
 
-#define USING_CALIB_PIN false //When PIN_CALIB is shorted (or it's button pushed) it will reset calibration if this is on.
+#define USING_CALIB_PIN true //When PIN_CALIB is shorted (or it's button pushed) it will reset calibration if this is on.
 
-#define USING_FORCE_FEEDBACK false //Force feedback haptics allow you to feel the solid objects you hold
+#define USING_FORCE_FEEDBACK true //Force feedback haptics allow you to feel the solid objects you hold
 #define SERVO_SCALING false //dynamic scaling of servo motors
 
 //PINS CONFIGURATION 

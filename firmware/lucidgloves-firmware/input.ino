@@ -38,7 +38,7 @@ void setupInputs(){
 }
 
 int* getFingerPositions(bool calibrating, bool reset){
-  int rawFingers[5] = {NO_THUMB?0:analogRead(PIN_THUMB), analogRead(PIN_INDEX), analogRead(PIN_MIDDLE), analogRead(PIN_RING), analogRead(PIN_PINKY)};
+  int rawFingers[5] = {NO_THUMB?0:analogRead(PIN_THUMB), NO_INDEX?0:analogRead(PIN_INDEX), NO_MIDDLE?0:analogRead(PIN_MIDDLE), NO_RING?0:analogRead(PIN_RING), NO_PINKY?analogRead(PIN_RING):analogRead(PIN_PINKY)}; //if no pinky then pinky = ring
 
   //flip pot values if needed
   #if FLIP_POTS
